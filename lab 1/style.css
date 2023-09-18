@@ -4,12 +4,20 @@
     padding: 20px 0;
     font-size: 20px;
     font-weight: bold;
+    background-image: url(images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.text-upper {
+    text-transform: uppercase;
 }
 
 .footer {
     background-color: navy;
     color: azure;
     padding: 20px 0;
+    margin-top: 20px;
 }
 
 .main-menu ul {
@@ -27,8 +35,24 @@ li:last-child {
     margin-right: 0;
 }
 
+.text-center {
+    text-align: center;
+}
+
 body {
     margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.avatar {
+    height: 300px;
+    text-align: center;
+    background-image: url(images/background1.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.avatar img{
+    height: 100%;
 }
 
 .container {
@@ -36,11 +60,59 @@ body {
     margin: 0 auto;
 }
 
-a {
+.main-menu a {
     text-decoration: none;
     color: azure;
 }
 
+.btn {
+    text-decoration: none;
+    color: navy;
+    border: 2px solid navy;
+    padding: 10px;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: center; /* От себя добавил */
+    transition: 0.3s;
+}
+
+.btn:hover{
+    /* 
+        Тут немного от себя сделал изменения цвета,
+        Препод менял цвет текста и рамки, а не фона.
+        + Переход у него занимает 1 сек, а не 0.3 сек
+    */ 
+    color: white;
+    background-color: navy;
+}
+
+.btn-white {
+    color: azure;
+    border-color: azure;
+}
+
+.btn-white:hover{ 
+    /* 
+        Этого у препода нет, просто сделал,
+        чтобы было покрасивше у меня.
+    */
+    color: navy;
+    background-color: azure;
+}
+
 p {
     text-align: justify;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border : 1px solid navy;
+}
+
+th, td{
+    text-align: center;
+    padding: 5px;
 }
