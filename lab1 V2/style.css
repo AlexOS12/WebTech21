@@ -1,0 +1,168 @@
+.header {
+    background-color: navy;
+    color: azure;
+    padding: 20px 0;
+    font-size: 20px;
+    font-weight: bold;
+    background-image: url(images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-center p{
+    text-align: center;
+}
+
+.text-upper {
+    text-transform: uppercase;
+}
+
+.footer {
+    background-color: navy;
+    color: azure;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+.main-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-menu li {
+    display: inline;
+    margin-right: 10px;
+}
+
+li:last-child {
+    margin-right: 0;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.avatar {
+    height: 300px;
+    text-align: center;
+    background-image: url(images/background1.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.avatar img {
+    height: 100%;
+}
+
+.container {
+    max-width: 75%;
+    margin: 0 auto;
+}
+
+.main-menu a {
+    text-decoration: none;
+    color: azure;
+}
+
+.btn {
+    text-decoration: none;
+    color: azure;
+    border: 2px solid azure;
+    padding: 10px;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    color: navy;
+    background-color: azure;
+}
+
+.btn-header {
+    color: azure;
+    border-color: azure;
+}
+
+.btn-header:hover {
+    color: navy;
+    background-color: azure;
+}
+
+p {
+    text-align: justify;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table,
+th,
+td {
+    border: 1px solid navy;
+}
+
+th,
+td {
+    text-align: center;
+    padding: 5px;
+}
+
+.card {
+    table-layout: fixed;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 50px;
+    color: azure;
+    border-style: none;
+    background-color: navy;
+    max-height: 400px;
+}
+
+.card td {
+    font-size: 18px;
+    border-style: none;
+    text-align: justify;
+}
+
+.card td h2 {
+    color: azure;
+}
+
+.table-pic {
+    width: 25%;
+    background-size: cover;
+    background-position-y: center;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+}
+
+.table-desc {
+    padding: 4%;
+}
+
+.table-desc p {
+    text-align: justify;
+}
+
+#abt {
+    background-image: url(images/ava.jpg);
+}
+
+#skls {
+    background-image: url(images/skills.jpeg);
+}
+
+#tchs {
+    background-image: url(images/techs.jpg);
+}
