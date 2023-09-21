@@ -48,6 +48,10 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+section {
+    padding-top: 20px;
+}
+
 .avatar {
     height: 300px;
     text-align: center;
@@ -113,32 +117,32 @@ td {
 th,
 td {
     text-align: center;
-    padding: 5px;
 }
 
 .card {
     table-layout: fixed;
     width: 100%;
-    margin-top: 20px;
     border-radius: 50px;
-    color: azure;
     border-style: none;
+    color: azure;
     background-color: navy;
-    max-height: 400px;
 }
 
 .card td {
     font-size: 18px;
     border-style: none;
     text-align: justify;
+    max-height: 395px;
 }
 
 .card td h2 {
     color: azure;
+    margin-top: 10px;
+    margin-bottom: 0;
 }
 
 .table-pic {
-    width: 25%;
+    width: 30%;
     background-size: cover;
     background-position-y: center;
     background-position-x: center;
@@ -147,22 +151,22 @@ td {
     border-top-left-radius: 50px;
 }
 
+.table-pic img {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+    padding: 0px;
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+}
+
 .table-desc {
-    padding: 4%;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .table-desc p {
     text-align: justify;
-}
-
-#abt {
-    background-image: url(images/ava.jpg);
-}
-
-#skls {
-    background-image: url(images/skills.jpeg);
-}
-
-#tchs {
-    background-image: url(images/techs.jpg);
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
