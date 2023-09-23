@@ -46,10 +46,13 @@ li:last-child {
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
+    background: radial-gradient(circle at 50% 0%, #0B000D 00%, #065496 90%);
+    background-repeat: no-repeat;
 }
 
 section {
     padding-top: 20px;
+    color: azure;
 }
 
 .avatar {
@@ -111,12 +114,16 @@ table {
 table,
 th,
 td {
-    border: 1px solid navy;
+    border: 1px solid azure;
 }
 
 th,
 td {
     text-align: center;
+}
+
+#techsTable td, th {
+    padding: 10px;
 }
 
 .card {
