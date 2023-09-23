@@ -9,6 +9,14 @@
     background-size: cover;
 }
 
+.text-center {
+    text-align: center;
+}
+
+.text-center p{
+    text-align: center;
+}
+
 .text-upper {
     text-transform: uppercase;
 }
@@ -28,20 +36,23 @@
 
 .main-menu li {
     display: inline;
-    margin-right: 10px;   
+    margin-right: 10px;
 }
 
 li:last-child {
     margin-right: 0;
 }
 
-.text-center {
-    text-align: center;
-}
-
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
+    background: radial-gradient(circle at 50% 0%, #0B000D 00%, #065496 90%);
+    background-repeat: no-repeat;
+}
+
+section {
+    padding-top: 20px;
+    color: azure;
 }
 
 .avatar {
@@ -51,7 +62,8 @@ body {
     background-repeat: no-repeat;
     background-position: center;
 }
-.avatar img{
+
+.avatar img {
     height: 100%;
 }
 
@@ -67,26 +79,26 @@ body {
 
 .btn {
     text-decoration: none;
-    color: navy;
-    border: 2px solid navy;
+    color: azure;
+    border: 2px solid azure;
     padding: 10px;
     border-radius: 10px;
     display: inline-block;
-    text-align: center; /* От себя добавил */
+    text-align: center;
     transition: 0.3s;
 }
 
-.btn:hover{
-    color: white;
-    background-color: navy;
+.btn:hover {
+    color: navy;
+    background-color: azure;
 }
 
-.btn-white {
+.btn-header {
     color: azure;
     border-color: azure;
 }
 
-.btn-white:hover{ 
+.btn-header:hover {
     color: navy;
     background-color: azure;
 }
@@ -99,11 +111,69 @@ table {
     border-collapse: collapse;
 }
 
-table, th, td {
-    border : 1px solid navy;
+table,
+th,
+td {
+    border: 1px solid azure;
 }
 
-th, td{
+th,
+td {
     text-align: center;
-    padding: 5px;
+}
+
+#techsTable td, th {
+    padding: 10px;
+}
+
+.card {
+    table-layout: fixed;
+    width: 100%;
+    border-radius: 50px;
+    border-style: none;
+    color: azure;
+    background-color: navy;
+}
+
+.card td {
+    font-size: 18px;
+    border-style: none;
+    text-align: justify;
+    max-height: 395px;
+}
+
+.card td h2 {
+    color: azure;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.table-pic {
+    width: 30%;
+    background-size: cover;
+    background-position-y: center;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+}
+
+.table-pic img {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+    padding: 0px;
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+}
+
+.table-desc {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.table-desc p {
+    text-align: justify;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
