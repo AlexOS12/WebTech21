@@ -1,4 +1,4 @@
-html{
+tml{
     scroll-behavior: smooth;
 }
 
@@ -175,11 +175,11 @@ td {
     padding: 0px;
     border-bottom-left-radius: 50px;
     border-top-left-radius: 50px;
+    display: block;
 }
 
 .table-desc {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding: 0 30px;
 }
 
 .table-desc p {
