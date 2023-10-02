@@ -1,28 +1,139 @@
-.label {
-    display: block;
-    font-weight: 600;
-}
-
-input, textarea {
-    font-size: inherit;
-}
-
-.container {
-    max-width: 700px;
-    margin: 0 auto;
+body {
+    background-color: rgb(37, 37, 38);
+    font-family: 'Nunito', sans-serif;
     font-size: 20px;
 }
 
-.form-group {
-    margin-bottom: 20px;
+.container {
+    background-color: rgb(51, 51, 51);
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px black;
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-.btn {
+* {
+    margin : 10px;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+label {
+    color: white;
     display: block;
-    width: 150px;
-    height: 40px;
+    text-align: center;
+}
+
+input {
+    display: block;
+    margin: 0 auto;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+}
+
+input#check {
+    display: inline;
+}
+
+input#fio,
+input#email {
+    width: 40%;
+    height: 1.25rem;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+input#fio:hover,
+input#email:hover,
+input#fio:focus,
+input#email:focus {
+    font-size: 20px;
+    width: 50%;
+    height: 1.5rem;
+    border: 3px solid #1967D2;
+    box-shadow: 0px 0px 20px black;
+    transition: 0.3s;
+}
+
+#checkboxLabel {
+    text-align: left;
+    display: inline;
+}
+
+legend {
+    color: white;
+    text-align: center;
+}
+
+input[type="radio"] {
+    display: inline;
+}
+
+fieldset label {
+    display: inline;
+} 
+
+div#src {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+fieldset {
+    width: 50%;
     margin: 0 auto;
     border-radius: 10px;
-    background-color: navy;
-    color: azure;
+}
+
+select {
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+}
+
+textarea {
+    resize: none;
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+input#file {
+    color: white;
+}
+
+input.btn {
+    color: black;
+    border-radius: 10px;
+    width: 25%;
+    height: 3rem;
+    transition: 0.3s;
+}
+
+input.btn:hover {
+    font-size: 24px;
+    width: 50%;
+    height: 4rem;
+    border: 3px solid #1967D2;
+    box-shadow: 0px 0px 20px black;
+    transition: 0.3s;
+}
+
+#finalCheckBox {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
 }
