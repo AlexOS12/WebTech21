@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Авторизация</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="button">
+            <a href="index.html" class="btn">Оставить отзыв</a>
+        </div>
+    </header>
+    <main>
+        <form class="container signInForm" action="https://httpbin.org/post" method="post">
+            <h1>Авторизация</h1>
+            <div class="form-group">
+                <label for="login" class="label">Логин:</label>
+                <input type="text" id="login" name="login" placeholder="Ваш логин" required>
+            </div>
+            <div class="form-group">
+                <label for="pass" class="label">Пароль:</label>
+                <input type="password" id="pass" name="pass" placeholder="Ваш пароль" required>
+            </div>
+            <div class="form-group chkBox">
+                <input type="checkbox" id="check" name="check">
+                <label for="check" id="checkboxLabel">Запомнить меня</label>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="inpbtn" value="Войти">
+            </div>
+        </form>
+    </main>
+</body>
+
+</html>
