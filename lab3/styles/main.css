@@ -1,20 +1,51 @@
+/* Основные стили страницы */
+
 .flexer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-/* Времянка */
-* {
-    color: white;
-}
-
 .side-menu {
     display: flex;
     flex-flow: column;
-    background-color: red;
     flex-grow: 1;
+    padding: 1rem;
 }
+
+.filter-section h4 {
+    display: block;
+    margin: 1rem auto 0.5rem auto;
+}
+
+.filter-section label {
+    display: block;
+    margin: 0 auto 0.5rem auto;
+}
+
+.filter-section p {
+    display: inline;
+}
+
+.filter-section input[type="text"],
+.filter-section input[type="number"] {
+    width: 90%;
+}
+
+.filter-section input[type="submit"] {
+    margin: 10px auto;
+    width: 90%;
+    display: block;
+}
+
+.filter-section input[type="checkbox"] {
+    display: inline;
+}
+
+.filter-section h3 {
+    text-align: center;
+}
+
 
 .main-content {
     display: flex;
@@ -23,6 +54,10 @@
     background-color: blue;
     flex-grow: 5;
     justify-content: space-around;
+}
+
+.problem-card {
+    display: flex;
 }
 
 .upBtn {
