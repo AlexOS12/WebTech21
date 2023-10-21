@@ -1,1 +1,23 @@
 /* Стили для печати */
+
+@media print {
+    #header {
+        display: none;
+    }
+    .side-menu {
+        display: none;
+    }
+    .upBtn {
+        display: none;
+    }
+
+    .problem-card .details .button {
+        background-color: #E2B714;
+        text-align: center;
+        padding: 0.5rem;
+        width: 50%;
+        border-radius: 10px;
+        margin: 0 auto;
+        cursor: pointer;
+    }
+}
