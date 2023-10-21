@@ -13,15 +13,15 @@ body {
 .flexer {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
 }
 
 /* Боковое меню */
 .side-menu {
     display: flex;
     flex-flow: column;
-    flex-grow: 1;
+    flex-shrink: 0;
     padding: 1rem;
+    width: 15rem;
 }
 
 /* Фильтры в боковом меню */
@@ -70,16 +70,17 @@ body {
 /* Основной контент */
 .main-content {
     display: flex;
+    padding-left: 2rem;
     flex-flow: wrap;
     gap: 20px;
-    flex-grow: 5;
+    flex-grow: 1;
     justify-content: flex-start;
 }
 
 /* Карточка задачи */
 .problem-card {
     display: flex;
-    width: 40rem;
+    width: 30rem;
     height: 20rem;
     background-color: #646669;
     border-radius: 20px;
