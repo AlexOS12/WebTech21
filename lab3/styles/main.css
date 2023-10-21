@@ -1,11 +1,22 @@
 /* Основные стили страницы */
 
+html {
+    scroll-behavior: smooth;
+    color: #D0CFC4;
+}
+
+body {
+    background-color: #323437;
+}
+
+/* Самый большой флекс-контейнер */
 .flexer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
+/* Боковое меню */
 .side-menu {
     display: flex;
     flex-flow: column;
@@ -13,64 +24,130 @@
     padding: 1rem;
 }
 
+/* Фильтры в боковом меню */
+.filter-section {
+    border: none;
+    padding: 0;
+}
+
+/* Заголовок фильтров */
 .filter-section h4 {
     display: block;
     margin: 1rem auto 0.5rem auto;
 }
 
+/* Подписи фильтров */
 .filter-section label {
     display: block;
     margin: 0 auto 0.5rem auto;
 }
 
+/* Текст в фильтрах */
 .filter-section p {
     display: inline;
 }
 
+/* Текстовые поля в фильтрах */
 .filter-section input[type="text"],
 .filter-section input[type="number"] {
     width: 90%;
+    color: #C9CFC4;
+    background-color: #646669;
 }
 
+/* Кнопка "применить" */
 .filter-section input[type="submit"] {
     margin: 10px auto;
-    width: 90%;
+    padding: 5px 20px;
     display: block;
 }
-
-.filter-section input[type="checkbox"] {
-    display: inline;
-}
-
+ 
+/* Заголовки фильтров */
 .filter-section h3 {
     text-align: center;
 }
 
-
+/* Основной контент */
 .main-content {
     display: flex;
     flex-flow: wrap;
     gap: 20px;
-    background-color: blue;
     flex-grow: 5;
-    justify-content: space-around;
+    justify-content: flex-start;
 }
 
+/* Карточка задачи */
 .problem-card {
     display: flex;
+    width: 40rem;
+    height: 20rem;
+    background-color: #646669;
+    border-radius: 20px;
 }
 
+/* Блок картинки на карточке задания */
+.problem-card .image {
+    width: 50%;
+    height: 100%;
+}
+
+/* Картинка на карточке задания */
+.problem-card .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 0 0 10px;
+}
+
+/* Информация о задаче */
+.problem-card .details {
+    width: 50%;
+    height: 100%;
+    padding: 1rem;
+}
+
+/* Название задачи */
+.problem-card .details header {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+/* Текст задачи */
+.problem-card .details .info {
+    text-align: justify;
+    font-size: 18px;
+    height: 60%;
+    overflow: auto;
+}
+
+/* Кнопка решить задачу */
+.problem-card .details .button {
+    background-color: #E2B714;
+    color: white;
+    text-align: center;
+    padding: 0.5rem;
+    width: 50%;
+    border-radius: 10px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+/* Кнопка наверх */
 .upBtn {
-    position: absolute;
+    position: fixed;
     right: 2%;
     bottom: 2%;
     border-radius: 50%;
     border-style: none;
-    background-color: rgb(0, 64, 128);
+    background-color: #E2B714;
     color: white;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 20px;
     height: 40px;
     width: 40px;
     cursor: pointer;
+    text-decoration: none;
 }
