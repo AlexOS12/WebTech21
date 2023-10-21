@@ -10,6 +10,10 @@ body {
     background-color: #323437;
 }
 
+.container {
+    min-height: 100vh;
+}
+
 /* Уведомление о слишком маленьком экране */
 #special-notification {
     display: none;
@@ -25,6 +29,8 @@ body {
     position: sticky;
     top: 0;
 }
+
+
 
 /* Содержимое заголовка */
 .head-menu {
@@ -200,8 +206,9 @@ body {
 /* Кнопка наверх */
 .upBtn {
     position: fixed;
-    right: 2%;
-    bottom: 2%;
+    right: 40px;
+    bottom: 40px;
+    margin: 0.5rem;
     border-radius: 50%;
     border-style: none;
     background-color: #E2B714;
