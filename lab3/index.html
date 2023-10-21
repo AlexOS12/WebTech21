@@ -5,11 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/mobile.css">
     <link rel="stylesheet" href="styles/print.css">
     <title>Задачки</title>
 </head>
 
 <body>
+    <!-- Пустой элемент для ссылки вверх -->
+    <span id="topelem"></span>
+    <h2 id="special-notification">Ваш экран слишком мал!</h2>
     <header id="header">
         <div class="head-menu">
             <div class="links">
@@ -58,14 +62,10 @@
                 </fieldset>
                 <fieldset class="filter-section">
                     <h4>Рейтинг:</h4>
-                    <div>
-                        <label for="minRate">От:</label>
-                        <input type="number" id="minRate" value="0" min="0" max="100">
-                    </div>
-                    <div>
-                        <label for="maxRate">До:</label>
-                        <input type="number" id="maxRate" value="100" min="0" max="100">
-                    </div>
+                    <label for="minRate">От:</label>
+                    <input type="number" id="minRate" value="0" min="0" max="100">
+                    <label for="maxRate">До:</label>
+                    <input type="number" id="maxRate" value="100" min="0" max="100">
                 </fieldset>
                 <div class="filter-section">
                     <input type="submit" value="Применить">
@@ -180,11 +180,15 @@
                 </div>
             </div>
         </div>
-        <a class="upBtn" href="#header">&#8593;</a>
+        <a class="upBtn" href="#topelem">&#8593;</a>
     </main>
 
     <footer>
-        Здесь будет подвал сайта
+        <div class="footer">
+            &copy; Обухов А.С. 2023 г. <br>
+            &#9993; <a href="mailto:obukhovas3210@mail.ru">obukhovas3210@mail.ru</a><br>
+            &#9881; ver 1.1.0_a [21.10.2023]
+        </div>
     </footer>
 </body>
 

@@ -10,6 +10,10 @@ body {
     background-color: #323437;
 }
 
+/* Уведомление о слишком маленьком экране */
+#special-notification {
+    display: none;
+}
 /* Самый большой флекс-контейнер */
 .flexer {
     display: flex;
@@ -104,7 +108,14 @@ body {
     margin: 10px auto;
     padding: 5px 20px;
     display: block;
+    background-color: #E2B714;
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
 }
+
 
 /* Заголовки фильтров */
 .filter-section h3 {
@@ -202,5 +213,20 @@ body {
     height: 40px;
     width: 40px;
     cursor: pointer;
+    text-decoration: none;
+}
+
+/* Футер */
+.footer {
+    background-color: #646669;
+    border-radius: 1rem 1rem 0 0;
+    border-top: 2px solid #E2B714;
+    margin-top: 1rem;
+    padding: 0 2rem;
+}
+
+/* Почта в футере */
+.footer a {
+    color: #D0CFC4;
     text-decoration: none;
 }

@@ -1,0 +1,57 @@
+@media (max-width: 1080px) {
+    html {
+        font-size: 20px;
+    }
+
+    .flexer {
+        flex-flow: column;
+    }
+
+    .side-menu {
+        width: 100%;
+        align-items: center;
+    }
+
+    .side-menu * {
+        text-align: center;
+    }
+
+    .main-content {
+        justify-content: center;
+    }
+
+    #header {
+        position: relative;
+    }
+
+    .head-menu {
+        flex-flow: column;
+    }
+
+    .head-menu li {
+        display: block;
+        text-align: center;
+    }
+
+    .head-menu .loginbtn {
+        margin: 0 auto;
+    }
+
+}
+
+@media (max-width: 450px) {
+    body * {
+        display: none;
+    }
+
+    #special-notification {
+        font-size: 15px;
+        margin: 0;
+        display: inline;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
