@@ -8,6 +8,7 @@
     }
 
     .side-menu {
+        padding: 0;
         width: 100%;
         align-items: center;
     }
@@ -35,6 +36,10 @@
 
     .head-menu .loginbtn {
         margin: 0 auto;
+    }
+
+    .main-content {
+        padding: 0;
     }
 
 }
