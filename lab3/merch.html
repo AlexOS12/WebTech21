@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/mobile.css">
+    <link rel="stylesheet" href="styles/print.css">
+    <title>Задачки</title>
+</head>
+
+<body>
+    <!-- Пустой элемент для ссылки вверх -->
+    <span id="topelem"></span>
+    <h2 id="special-notification">Ваш экран слишком мал!</h2>
+    <header id="header">
+        <div class="head-menu">
+            <div class="links">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="merch.html">Мерч</a></li>
+                    <li><a href="mailto:obukhovas3210@mail.ru">Написать нам</a></li>
+                </ul>
+            </div>
+            <div class="loginbtn">
+                <a href="youshallnotpass!.html">Войти</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <main>
+            <div class="flexer">
+                <div class="side-menu">
+                    <h3>Фильтры</h3>
+                    <fieldset class="filter-section">
+                        <h4>Название:</h4>
+                        <input type="text" placeholder="Имя задачи" name="name">
+                    </fieldset>
+                    <fieldset class="filter-section">
+                        <h4>Оценка:</h4>
+                        <div>
+                            <input type="checkbox" name="difficulty" id="1Diff">
+                            <p>&#9733;&#9734;&#9734;&#9734;&#9734;</p>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="difficulty" id="2Diff">
+                            <p>&#9733;&#9733;&#9734;&#9734;&#9734;</p>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="difficulty" id="3Diff">
+                            <p>&#9733;&#9733;&#9733;&#9734;&#9734;</p>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="difficulty" id="4Diff">
+                            <p>&#9733;&#9733;&#9733;&#9733;&#9734;</p>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="difficulty" id="5Diff">
+                            <p>&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                        </div>
+                    </fieldset>
+                    <fieldset class="filter-section">
+                        <h4>Вид товара:</h4>
+                        <div>
+                            <input type="checkbox" name="difficulty" id="сlothes" checked>
+                            <p>Одежда</p>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="difficulty" id="accessories" checked>
+                            <p>Аксессуары</p>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="difficulty" id="bauble" checked>
+                            <p>Безделушки</p>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="difficulty" id="other" checked>
+                            <p>Другое</p>
+                        </div>
+                    </fieldset>
+                    <fieldset class="filter-section">
+                        <h4>Цена:</h4>
+                        <label for="minPrice">От:</label>
+                        <input type="number" id="minPrice" value="0" min="0" max="999999">
+                        <label for="maxPrice">До:</label>
+                        <input type="number" id="maxPrice" value="100" min="0" max="999999">
+                    </fieldset>
+                    <div class="filter-section">
+                        <input type="submit" value="Применить">
+                    </div>
+
+                </div>
+                <div class="main-content">
+                    <div class="problem-card">
+                        <div class="image">
+                            <img src="images/products/coders-notebook.jpg" alt="Тетрадь програмыста">
+                        </div>
+                        <div class="details">
+                            <header>Тетрадь програмыста</header>
+                            <p class="info">
+                                Стоит только Вам её достать, как все сразу же понимают, что
+                                Вы тот самый настоящий програмыст
+                            </p>
+                            <span class="spacer"></span>
+                            <p class="diff">
+                                Оценка:
+                                &#9733;&#9733;&#9733;&#9733;&#9734;
+                            </p>
+                            <p class="price">
+                                Цена: 300 ₽
+                            </p>
+                            <div class="button">
+                                <a href="error503.html">Купить!</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="problem-card">
+                        <div class="image">
+                            <img src="images/products/sticker.jpg" alt="Картинка к задаче">
+                        </div>
+                        <div class="details">
+                            <header>Стикер</header>
+                            <p class="info">
+                                Он прекрасно описывает всю боль, знакомую каждому програмысту
+                            </p>
+                            <span class="spacer"></span>
+                            <p class="diff">
+                                Оценка:
+                                &#9733;&#9733;&#9733;&#9734;&#9734;
+                            </p>
+                            <p class="price">
+                                Цена: 100 ₽
+                            </p>
+                            <div class="button">
+                                <a href="error503.html">Купить!</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="problem-card">
+                        <div class="image">
+                            <img src="images/products/sticker 2.jpg" alt="Картинка к задаче">
+                        </div>
+                        <div class="details">
+                            <header>Стикер</header>
+                            <p class="info">
+                                Идеально описывает "уверенных пользователей ПК". <br>
+                                Лепите на лоб всем, кто так говорит
+                            </p>
+                            <span class="spacer"></span>
+                            <p class="diff">
+                                Оценка:
+                                &#9733;&#9733;&#9733;&#9733;&#9734;
+                            </p>
+                            <p class="price">
+                                Цена: 100 ₽
+                            </p>
+                            <div class="button">
+                                <a href="error503.html">Купить!</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="problem-card">
+                        <div class="image">
+                            <img src="images/products/vsCode.png" alt="Картинка к задаче">
+                        </div>
+                        <div class="details">
+                            <header>VS Code</header>
+                            <p class="info">
+                                Он так-то бесплатный, но мы решили продать его за 100500 деняг
+                            </p>
+                            <span class="spacer"></span>
+                            <p class="diff">
+                                Оценка:
+                                &#9733;&#9733;&#9733;&#9733;&#9733;
+                            </p>
+                            <p class="price">
+                                Цена: 100 500 ₽
+                            </p>
+                            <div class="button">
+                                <a href="error503.html">Купить!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="upBtn" href="#topelem">&#8593;</a>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer">
+            &copy; Обухов А.С. 2023 г. <br>
+            &#9993; <a href="mailto:obukhovas3210@mail.ru">obukhovas3210@mail.ru</a><br>
+            &#9881; ver 1.1.0_a [21.10.2023]
+        </div>
+    </footer>
+</body>
+
+</html>

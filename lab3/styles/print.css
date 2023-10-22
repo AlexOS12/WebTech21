@@ -1,7 +1,7 @@
 /* Стили для печати */
 
 @media print {
-    #header {
+    #header, footer {
         display: none;
     }
     .side-menu {

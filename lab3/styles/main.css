@@ -164,8 +164,9 @@ body {
 
 /* Информация о задаче */
 .problem-card .details {
+    display: flex;
+    flex-flow: column;
     width: 50%;
-    height: 100%;
     padding: 1rem;
 }
 
@@ -181,10 +182,18 @@ body {
 .problem-card .details .info {
     text-align: justify;
     font-size: 18px;
-    height: 60%;
     overflow: auto;
 }
 
+/* Цена товара */
+.problem-card .details .price {
+    margin-top: 0;
+}
+
+/* Проставка между элементами */
+.problem-card .details .spacer {
+    flex-grow: 1;
+}
 
 /* Кнопка решить задачу */
 .problem-card .details .button {
@@ -229,7 +238,7 @@ body {
     border-radius: 1rem 1rem 0 0;
     border-top: 2px solid #E2B714;
     margin-top: 1rem;
-    padding: 0 2rem;
+    padding: 1rem 2rem;
 }
 
 /* Почта в футере */

@@ -1,0 +1,20 @@
+.error-message {
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+    align-items: center;
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.back-to-safe {
+    background-color: #E2B714;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+}
