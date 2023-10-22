@@ -2,11 +2,11 @@
 // 0, 1, 1, 2, 3, ...
 function fibb(n) {
     // проверка на отрицательное число
-    if (n < 0) return NaN
+    if (n < 0) return NaN;
 
     // проверка на 0-й и 1-й элемент последовательности
-    if (n < 2) return n
+    if (n < 2) return n;
 
     // рекурсивное движение
-    return fibb(n - 1) + fibb(n - 2)
+    return fibb(n - 1) + fibb(n - 2);
 }

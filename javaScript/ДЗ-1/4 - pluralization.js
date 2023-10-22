@@ -1,20 +1,24 @@
 function pluralizeRecords(n) {
     if (n < 0 || n % 1 != 0) {
-        return NaN
+        return NaN;
     }
 
     // сюда запишем кол-во записией с учётом склонения
-    records = "" 
+    records = "";
+    found = "";
 
     // определяем склонение
     if (n % 10 == 1 && (n < 10 || n > 20)) {
-        records = 'запись'
+        records = 'запись';
+        found = 'была найдена';
     } else if (2 <= n % 10 && n % 10 <= 4) {
-        records = 'записи'
+        records = 'записи';
+        found = 'были найдены';
     } else {
-        records = 'записей'
+        records = 'записей';
+        found = 'было найдено';
     }
 
     // формируем финальную строку
-    return `В результате выполнения запроса было найдено ${n} ${records}`
+    return `В результате выполнения запроса ${found} ${n} ${records}`;
 }
