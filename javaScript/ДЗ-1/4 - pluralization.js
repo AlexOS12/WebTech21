@@ -8,15 +8,17 @@ function pluralizeRecords(n) {
     found = "";
 
     // определяем склонение
-    if (n % 10 == 1 && (n < 10 || n > 20)) {
+    let isTen = (n % 100 >= 10 && n % 100 <= 19);
+
+    if (n % 10 == 1 && !isTen) {
         records = 'запись';
         found = 'была найдена';
-    } else if (2 <= n % 10 && n % 10 <= 4) {
+    } else if (2 <= n % 10 && n % 10 <= 4 && !isTen){
         records = 'записи';
-        found = 'были найдены';
+        found = 'были найдены';        
     } else {
         records = 'записей';
-        found = 'было найдено';
+        found = 'было найдено';        
     }
 
     // формируем финальную строку
