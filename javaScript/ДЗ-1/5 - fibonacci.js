@@ -7,6 +7,15 @@ function fibb(n) {
     // проверка на 0-й и 1-й элемент последовательности
     if (n < 2) return n;
 
-    // рекурсивное движение
-    return fibb(n - 1) + fibb(n - 2);
+    let a = b = 1;
+
+    n -= 2;
+    
+    while (n > 0){
+        t = a;
+        a = b;
+        b = t + a;
+        n--;
+    }
+    return b;
 }
