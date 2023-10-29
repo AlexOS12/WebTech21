@@ -11,7 +11,7 @@ function getSortedArray(array, key) {
             }
         }
     }
-    return array
+    return array;
 }
 
 // Пример работы функции.
