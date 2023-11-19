@@ -27,14 +27,13 @@ hr {
 
 .screen {
     display: block;
-    height: 85px;
+    height: 90px;
     margin: 20px 0;
     color: #fff;
     text-align: right;
     display: block;
     font-size: 4rem;
 }
-
 
 .buttons {
     display: flex;
@@ -56,6 +55,12 @@ hr {
     transition: 0.3s;
 }
 
+.zero {
+    width: 315px;
+    height: 140px;
+    border-radius: 70px;
+}
+
 .key:hover {
     background-color: #aaa;
 }
@@ -66,6 +71,10 @@ hr {
 
 .key:active {
     font-size: 3rem;
+}
+
+.space {
+    visibility: hidden;
 }
 
 .operation,

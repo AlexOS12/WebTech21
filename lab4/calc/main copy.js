@@ -1,5 +1,3 @@
-"use strict";
-
 // Функция priority позволяет получить 
 // значение приоритета для оператора.
 // Возможные операторы: +, -, *, /.
@@ -168,11 +166,14 @@ function evaluate(str) {
 // handler for each button separately.
 
 function clickHandler(event) {
-    alert(event.value);
+    // your code here
 }
 
-let keys = document.querySelectorAll(".key");
+
+// Назначьте нужные обработчики событий.
+// ----------------------------------------------------------------------------
+// Set event handlers.
 
 window.onload = function () {
-   
+    // your code here
 };
