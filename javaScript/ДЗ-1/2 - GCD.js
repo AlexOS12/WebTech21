@@ -1,7 +1,7 @@
 // Решение при помощи алгоритма Евклида
 function gcd(a, b) {
     while (a != 0 && b != 0) {
-        if (a > b){
+        if (a > b) {
             a %= b;
         } else {
             b %= a;

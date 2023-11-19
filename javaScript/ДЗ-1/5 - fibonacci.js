@@ -11,7 +11,7 @@ function fibb(n) {
 
     n -= 2;
     
-    while (n > 0){
+    while (n > 0) {
         t = a;
         a = b;
         b = t + a;
