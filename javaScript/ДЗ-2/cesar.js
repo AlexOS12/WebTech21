@@ -20,7 +20,7 @@ function cesar(str, shift, action) {
                 id = (id - shift) % 33;
                 res = res + bigLetters[id];
             }
-        } else if (code >= 1072 && code <= 1103 || code == 1105){
+        } else if (code >= 1072 && code <= 1103 || code == 1105) {
             let id = lilLetters.indexOf(str[i]);
             if (action == "encode") {
                 id = (id + shift) % 33;
