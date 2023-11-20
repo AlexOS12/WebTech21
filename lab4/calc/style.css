@@ -11,6 +11,10 @@ html {
     font-family: SamsungOne;
 }
 
+.result {
+    color: #338507;
+}
+
 .calc-container {
     position: fixed;
     top: 50%;

@@ -1,5 +1,8 @@
 "use strict";
 
+let keys = document.querySelectorAll(".key");
+let screen = document.querySelector(".screen");
+
 // Функция priority позволяет получить 
 // значение приоритета для оператора.
 // Возможные операторы: +, -, *, /.
@@ -53,7 +56,7 @@ function isOperation(str) {
 function tokenize(str) {
     let tokens = [];
     let lastNumber = '';
-    for (char of str) {
+    for (let char of str) {
         if (isDigit(char) || char == '.') {
             lastNumber += char;
         } else {
@@ -61,10 +64,10 @@ function tokenize(str) {
                 tokens.push(lastNumber);
                 lastNumber = '';
             }
-        } 
+        }
         if (isOperation(char) || char == '(' || char == ')') {
             tokens.push(char);
-        } 
+        }
     }
     if (lastNumber.length > 0) {
         tokens.push(lastNumber);
@@ -95,13 +98,13 @@ function tokenize(str) {
 function compile(str) {
     let out = [];
     let stack = [];
-    for (token of tokenize(str)) {
+    for (let token of tokenize(str)) {
         if (isNumeric(token)) {
             out.push(token);
         } else if (isOperation(token)) {
-            while (stack.length > 0 && 
-                   isOperation(stack[stack.length - 1]) && 
-                   priority(stack[stack.length - 1]) >= priority(token)) {
+            while (stack.length > 0 &&
+                isOperation(stack[stack.length - 1]) &&
+                priority(stack[stack.length - 1]) >= priority(token)) {
                 out.push(stack.pop());
             }
             stack.push(token);
@@ -137,7 +140,32 @@ function compile(str) {
 // (https://en.wikipedia.org/wiki/Reverse_Polish_notation).
 
 function evaluate(str) {
-    // your code here
+    let a, b;
+
+    for (let i of str.split(" ")) {
+        if (isNumeric(i)) {
+            a = b;
+            b = Number(i);
+        } else if (isOperation(i)) {
+            switch (i) {
+            case '+':
+                b = a + b;
+                break;
+            case '-':
+                b = a - b;
+                break;
+            case '*':
+                b = a * b;
+                break;
+            case '/':
+                b = a / b;
+                break;
+            default:
+                return 'error';
+            }
+        }
+    }
+    return b;
 }
 
 // Функция clickHandler предназначена для обработки 
@@ -168,11 +196,28 @@ function evaluate(str) {
 // handler for each button separately.
 
 function clickHandler(event) {
-    alert(event.value);
+    // alert(event.target.textContent);
+    if (event.target.textContent == "C") {
+        screen.textContent = "";
+        screen.style.color = "#fff";
+    } else if (event.target.textContent == "=") {
+        // alert(screen.textContent);
+        let rpn = compile(screen.textContent);
+        let result = evaluate(rpn);
+        screen.textContent = result;
+        screen.style.color = "#338507";
+    } else {
+        screen.style.color = "#fff";
+        screen.textContent += event.target.textContent;
+    }
 }
 
-let keys = document.querySelectorAll(".key");
+// Назначьте нужные обработчики событий.
+// ----------------------------------------------------------------------------
+// Set event handlers.
 
 window.onload = function () {
-   
+    for (let key of keys) {
+        key.onclick = clickHandler;
+    }
 };
