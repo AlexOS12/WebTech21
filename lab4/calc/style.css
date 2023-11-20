@@ -15,6 +15,15 @@ html {
     color: #338507;
 }
 
+#glove {
+    position: fixed;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%);
+    height: 80%;
+    transition: 1s;
+}
+
 .calc-container {
     position: fixed;
     top: 50%;

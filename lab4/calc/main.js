@@ -2,6 +2,19 @@
 
 let keys = document.querySelectorAll(".key");
 let screen = document.querySelector(".screen");
+let glove = document.getElementById("glove");
+let snap = new Audio();
+snap.preload = "auto";
+snap.src = "snap.mp3";
+
+function destroyAll() {
+    let everything = document.querySelectorAll("*");
+
+    snap.play();
+    for (let elem of everything) {
+        elem.hidden = true;
+    }   
+}
 
 // Функция priority позволяет получить 
 // значение приоритета для оператора.
@@ -203,6 +216,12 @@ function clickHandler(event) {
     } else if (event.target.textContent == "=") {
         let rpn = compile(screen.textContent);
         let result = evaluate(rpn);
+
+        if (result == Infinity) {
+            glove.style.top = "10%";
+            setTimeout(destroyAll, 1250);
+        }
+
         screen.textContent = result.toFixed(2);
         screen.style.color = "#338507";
     } else {
