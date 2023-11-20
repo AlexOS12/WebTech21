@@ -140,32 +140,33 @@ function compile(str) {
 // (https://en.wikipedia.org/wiki/Reverse_Polish_notation).
 
 function evaluate(str) {
+    let stack = [];
     let a, b;
-
     for (let i of str.split(" ")) {
         if (isNumeric(i)) {
-            a = b;
-            b = Number(i);
+            stack.push(Number(i));
         } else if (isOperation(i)) {
+            a = stack.pop();
+            b = stack.pop();
             switch (i) {
             case '+':
-                b = a + b;
+                stack.push(b + a);
                 break;
             case '-':
-                b = a - b;
+                stack.push(b - a);
                 break;
             case '*':
-                b = a * b;
+                stack.push(b * a);
                 break;
             case '/':
-                b = a / b;
+                stack.push(b / a);
                 break;
             default:
                 return 'error';
             }
         }
     }
-    return b;
+    return stack[0];
 }
 
 // Функция clickHandler предназначена для обработки 
@@ -196,15 +197,13 @@ function evaluate(str) {
 // handler for each button separately.
 
 function clickHandler(event) {
-    // alert(event.target.textContent);
     if (event.target.textContent == "C") {
         screen.textContent = "";
         screen.style.color = "#fff";
     } else if (event.target.textContent == "=") {
-        // alert(screen.textContent);
         let rpn = compile(screen.textContent);
         let result = evaluate(rpn);
-        screen.textContent = result;
+        screen.textContent = result.toFixed(2);
         screen.style.color = "#338507";
     } else {
         screen.style.color = "#fff";
