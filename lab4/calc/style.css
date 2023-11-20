@@ -12,6 +12,10 @@ html {
 }
 
 .calc-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: black;
     margin: 0 auto;
     padding: 1rem;
