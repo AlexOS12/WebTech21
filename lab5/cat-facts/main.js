@@ -126,8 +126,8 @@ function pageBtnHandler(event) {
 }
 
 function showAutocompletes(suggestionList) {
-    let autoCompletesBox = document.querySelector('.autoCompletesBox');
-    let autoCompletesList = document.querySelector('.autoCompletes');
+    let autoCompletesBox = document.querySelector('.auto-completes-box');
+    let autoCompletesList = document.querySelector('.auto-completes');
 
     autoCompletesList.innerHTML = "";
 
