@@ -1,0 +1,9 @@
+.line {
+    background-color: #31d2f2;
+    width: 200px;
+    height: 3px;
+}
+
+.sticky {
+    position: sticky;
+}
