@@ -7,3 +7,16 @@
 .sticky {
     position: sticky;
 }
+
+img, iframe {
+    border-radius: 5%;
+}
+
+textarea {
+    height: 200px !important;
+}
+
+.footer-line {
+    background-color: #f9f8fa;
+    opacity: 1;
+}
