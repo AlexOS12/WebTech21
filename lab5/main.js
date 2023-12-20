@@ -115,12 +115,14 @@ function downloadData(page = 1, searchRequest = "") {
 }
 
 function perPageBtnHandler(event) {
-    downloadData(1);
+    let searchReq = document.querySelector('.search-field').value;
+    downloadData(1, searchReq);
 }
 
 function pageBtnHandler(event) {
     if (event.target.dataset.page) {
-        downloadData(event.target.dataset.page);
+        let searchReq = document.querySelector('.search-field').value;
+        downloadData(event.target.dataset.page, searchReq);
         window.scrollTo(0, 0);
     }
 }
@@ -163,6 +165,7 @@ function getAutocompletes(event) {
 }
 
 function searchFacts(event) {
+    document.querySelector('.auto-completes-box').classList.add("hide");
     let request = document.querySelector(".search-field").value;
     downloadData(1, request);
 }
