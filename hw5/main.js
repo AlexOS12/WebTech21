@@ -1,5 +1,14 @@
 'use strict';
 
+const server = "http://tasks-api.std-900.ist.mospolytech.ru/";
+const api = "50d2199a-42dc-447d-81ed-d68a443b697e";
+
+function genURL(path) {
+    let url = new URL(`${server}/api/${path}`);
+    url.searchParams.set("api_key", api);
+    return url;
+}
+
 function Task(id, name, desc, status) {
 
     this.id = id;
@@ -7,22 +16,49 @@ function Task(id, name, desc, status) {
     this.desc = desc;
     this.status = status;
 
-    this.save = function () {
-        localStorage.setItem(`task-${this.id}`, JSON.stringify(this));
-        if (!this.element.isConnected) {
-            this.addElementToDocument();
-        } else {
-            this.updateTaskElement()
-        }
-        return this;
-    }
+    this.save = async function (update = false) {
+        let path = "tasks" + (update ? `/${this.id}` : "");
+        let url = genURL(path);
+        let form = new FormData();
+        form.append("name", this.name);
+        form.append("desc", this.desc);
+        form.append("status", this.status);
 
-    this.remove = function () {
-        localStorage.removeItem(`task-${this.id}`);
+        let reqMethod = update ? "PUT" : "POST"
+
+        let response = await fetch(url, {
+            method: reqMethod,
+            body: form
+        });
+        if (response.ok) {
+            if (!this.element.isConnected) {
+                let json = await response.json();
+                this.id = json.id;
+                this.name = json.name;
+                this.desc = json.desc;
+                this.status = json.status;
+                this.addElementToDocument();
+            } else {
+                this.updateTaskElement();
+            }
+            return this;
+        } else {
+            showAlert("Ошибка " + response.status);
+        }
+    };
+
+    this.remove = async function () {
+        let url = genURL(`tasks/${this.id}`);
+        let response = await fetch(url, {
+            method: "DELETE"
+        }).then(() => {
+            this.element.remove();
+        });
+
         if (this.element) {
             this.element.remove();
         }
-    }
+    };
 
     this.createTaskElement = function () {
         let template = document.getElementById('task-template');
@@ -33,19 +69,20 @@ function Task(id, name, desc, status) {
             btn.onclick = moveBtnHandler;
         }
         return newTaskElement;
-    }
+    };
 
     this.element = document.getElementById(id) || this.createTaskElement();
 
     this.updateTaskElement = function () {
         this.element.querySelector('.task-name').textContent = this.name;
         this.element.querySelector('.task-description').textContent = this.desc;
-    }
+    };
 
     this.addElementToDocument = function () {
         let listElement = document.getElementById(`${this.status}-list`);
         listElement.append(this.element);
-    }
+        this.element.setAttribute("id", this.id);
+    };
 
 }
 
@@ -54,40 +91,50 @@ function TaskManager() {
 
     this.createTask = function (name, desc, status) {
         let task = new Task(this.taskCounter++, name, desc, status);
-        return task.save();
-    }
+        task.save().then(data => { });
+        return task;
+    };
 
-    this.findTaskById = function (id) {
-        let data = JSON.parse(localStorage.getItem(`task-${id}`));
-        return new Task(data.id, data.name, data.desc, data.status);
-    }
-
-    this.getAllTasks = function () {
-        let res = [];
-        let maxId = 0;
-        for (let key in {...localStorage}) {
-            res.push(this.findTaskById(key.slice(5)));
-            maxId = Math.max(maxId, res.at(-1).id);
+    this.findTaskById = async function (id) {
+        let url = genURL(`tasks/${id}`);
+        let res = await fetch(url);
+        if (res.ok) {
+            let json = await res.json();
+            return new Task(json.id, json.name, json.desc, json.status);
         }
-        this.taskCounter = maxId + 1;
-        return res;
-    }
+    };
+
+    this.getAllTasks = async function () {
+        let res = await fetch(genURL("tasks"));
+        let tasksList = [];
+
+        if (res.ok) {
+            let json = await res.json();
+            for (let task of json.tasks) {
+                tasksList.push(new Task(task.id, task.name, task.desc, task.status));
+            }
+            return tasksList;
+        } else {
+            showAlert("Ошибка обращения к серверу: " + res.status, "error");
+        }
+
+    };
 }
 
-function moveBtnHandler(event) {
+async function moveBtnHandler(event) {
     let taskElement = event.target.closest('.task');
 
-    let task = taskManager.findTaskById(taskElement.id);
+    let task = await taskManager.findTaskById(taskElement.id);
     task.status = task.status == 'to-do' ? 'done' : 'to-do';
-    task.save();
+    task.save(true);
 
     let targetContainer = document.getElementById(`${task.status}-list`);
     targetContainer.append(taskElement);
 }
 
-function deleteTaskBtnHandler(event) {
+async function deleteTaskBtnHandler(event) {
     let form = event.target.closest('.modal').querySelector('form');
-    let task = taskManager.findTaskById(form.elements['task-id'].value);
+    let task = await taskManager.findTaskById(form.elements['task-id'].value);
     task.remove();
 }
 
@@ -104,12 +151,13 @@ function setFormValues(form, task) {
     form.elements['task-id'].value = task.id;
 }
 
-function showAlert(msg, category='success') {
+function showAlert(msg, category = 'success') {
     let alerts = document.querySelector('.alerts');
     let template = document.getElementById('alert-template');
     let newAlert = template.content.firstElementChild.cloneNode(true);
     newAlert.querySelector('.msg').innerHTML = msg;
     alerts.append(newAlert);
+    setTimeout(() => newAlert.remove(), 3000);
 }
 
 function updateTasksCounters(event) {
@@ -119,9 +167,9 @@ function updateTasksCounters(event) {
     tasksCounterElement.innerHTML = columnElement.querySelector('ul').children.length;
 }
 
-function actionTaskBtnHandler(event) {
+async function actionTaskBtnHandler(event) {
     let alertMsg, form, action, name, desc, status, task, taskId;
-    
+
     form = this.closest('.modal').querySelector('form');
     action = form.elements['action'].value;
     name = form.elements['name'].value;
@@ -133,13 +181,13 @@ function actionTaskBtnHandler(event) {
         task = taskManager.createTask(name, desc, status);
         alertMsg = `Задача ${task.name} была успешно создана!`;
     } else if (action == 'edit') {
-        task = taskManager.findTaskById(taskId);
+        task = await taskManager.findTaskById(taskId);
         task.name = name;
         task.desc = desc;
-        task.save();
+        task.save(true);
         alertMsg = `Задача ${name} была успешно обновлена!`;
     }
-    
+
     if (alertMsg) {
         showAlert(alertMsg, 'success');
     }
@@ -167,19 +215,23 @@ window.onload = function () {
         list.addEventListener('DOMSubtreeModified', updateTasksCounters);
     }
 
-    for (let task of taskManager.getAllTasks()) {
-        task.addElementToDocument();
-    };
+    taskManager.getAllTasks().then(data => {
+        for (let task of data) {
+            task.addElementToDocument();
+        }
+    }, () => {
+        console.log("ERROR");
+    });
 
     document.querySelector('.action-task-btn').onclick = actionTaskBtnHandler;
 
     for (let btn of document.querySelectorAll('.move-btn')) {
-        btn.onclick =  moveBtnHandler;
+        btn.onclick = moveBtnHandler;
     }
 
-    document.getElementById('task-modal').addEventListener('show.bs.modal', function (event) {
+    document.getElementById('task-modal').addEventListener('show.bs.modal', async function (event) {
         let form = this.querySelector('form');
-        resetForm(form)
+        resetForm(form);
 
         let action = event.relatedTarget.dataset.action || 'create';
 
@@ -188,7 +240,7 @@ window.onload = function () {
         this.querySelector('.action-task-btn').textContent = actionBtnText[action];
 
         if (action == 'edit' || action == 'show') {
-            let task = taskManager.findTaskById(event.relatedTarget.closest('.task').id);
+            let task = await taskManager.findTaskById(event.relatedTarget.closest('.task').id);
             setFormValues(form, task);
             this.querySelector('select').closest('.mb-3').classList.add('d-none');
         }
@@ -200,8 +252,8 @@ window.onload = function () {
 
     });
 
-    document.getElementById('remove-task-modal').addEventListener('show.bs.modal', function (event) {
-        let task = taskManager.findTaskById(event.relatedTarget.closest('.task').id);
+    document.getElementById('remove-task-modal').addEventListener('show.bs.modal', async function (event) {
+        let task = await taskManager.findTaskById(event.relatedTarget.closest('.task').id);
         let form = this.querySelector('form');
         form.elements['task-id'].value = task.id;
         this.querySelector('.task-name').textContent = task.name;
@@ -209,4 +261,4 @@ window.onload = function () {
 
     document.querySelector('.delete-task-btn').onclick = deleteTaskBtnHandler;
 
-}
+};
